@@ -2,8 +2,9 @@ from core.configs import settings
 from sqlalchemy import Column, Integer, String, Float
 
 class ProductModel(settings.DBBaseModel):
-    __tablename__ = 'dbo.dremel'
+    __tablename__ = 'dremel'
 
+    id_producto: int = Column(Integer, primary_key=True)
     status: str = Column(String(30))
     modelo_herramienta: str = Column(String(100))
     codigo_herramienta: str = Column(String(100))
@@ -11,17 +12,17 @@ class ProductModel(settings.DBBaseModel):
     categoria2: str = Column(String(100))
     nombre_producto: str = Column(String(100))
     voltaje: str = Column(String(100))
-    codigo_barras: str = Column(Float)
+    codigo_barras: float = Column(Float)
     pais_origen: str = Column(String(100)) 
-    largo_individual: str = Column(Float) 
-    ancho_individual: str = Column(Float)  
-    alto_individual: str = Column(Float)  
-    largo_master: str = Column(Float)  
-    ancho_master: str = Column(Float)  
-    alto_master: str = Column(Float)  
-    cantidad_herramientas_empaque_master: str = Column(Float)  
-    peso_individual: str = Column(Float)  
-    peso_empaque_master: str = Column(Float)  
+    largo_individual: float = Column(Float) 
+    ancho_individual: float = Column(Float)  
+    alto_individual: float = Column(Float)  
+    largo_master: float = Column(Float)  
+    ancho_master: float = Column(Float)  
+    alto_master: float = Column(Float)  
+    cantidad_herramientas_empaque_master: float = Column(Float)  
+    peso_individual: float = Column(Float)  
+    peso_empaque_master: float = Column(Float)  
     potencia_w: str = Column(String(100))  
     garantia: str = Column(String(100))  
     argumentos_ventas: str = Column(String(100))  
@@ -35,9 +36,8 @@ class ProductModel(settings.DBBaseModel):
     compatible: str = Column(String(100))
     imagenes: str = Column(String(255))
     tiene_video: str = Column(String(255))
-    cuantos: str = Column(Float)
-    link_youtube: str = Column(Float)
-    id_producto: int = Column(Integer, primary_key=True)
+    cuantos: float = Column(Float)
+    link_youtube: str = Column(String(255))
 
     
 
