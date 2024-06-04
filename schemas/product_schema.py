@@ -18,7 +18,7 @@ class ProductSchema(SCBaseModel):
     alto_individual: float  
     largo_master: float  
     ancho_master: float  
-    alto_master: float  
+    alto_master: float | None
     cantidad_herramientas_empaque_master: float | None
     peso_individual: float  
     peso_empaque_master: float  
