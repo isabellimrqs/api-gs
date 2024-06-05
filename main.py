@@ -24,6 +24,7 @@ async def post_product(product: ProductSchema,  db: AsyncSession = Depends(get_s
                                    alto_individual = product.alto_individual, 
                                    largo_master = product.largo_master,  
                                    ancho_master = product.ancho_master, 
+                                   alto_master = product.alto_master, 
                                    cantidad_herramientas_empaque_master = product.cantidad_herramientas_empaque_master,  peso_individual = product.peso_individual, 
                                    peso_empaque_master = product.peso_empaque_master, 
                                    potencia_w = product.potencia_w, 
@@ -105,6 +106,9 @@ async def put_product(product_id: int, product: ProductSchema, db: AsyncSession 
                update_product.tiene_video = product.tiene_video
                update_product.cuantos = product.cuantos
                update_product.link_youtube = product.link_youtube
+
+               await session.commit()
+               return update_product
           else:
                raise HTTPException(detail="Product no encontrado", status_code=status.HTTP_404_NOT_FOUND)
             
